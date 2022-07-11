@@ -25,6 +25,7 @@ public class ClassVariable {
     }
 
 
+
 }
 
 class InventoryManager {
@@ -39,4 +40,5 @@ class InventoryManager {
         this.productCount = productCount;
     }
 }
+
 

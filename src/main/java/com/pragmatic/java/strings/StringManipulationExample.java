@@ -1,5 +1,9 @@
 package com.pragmatic.java.strings;
 
+/**
+ *
+ * API Docs : https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/String.html
+ */
 public class StringManipulationExample {
 
 

@@ -23,6 +23,8 @@ public class StringConcatenationExample {
        System.out.println( Integer.toString(num1) + Integer.toString(num2) + Integer.toString(num3) + " <== num1 + num2+num3 ");
        System.out.println( num1 + num2 + num3 );
 
+        System.out.println(firstName.concat(" ").concat(lastName));
+
 
     }
 

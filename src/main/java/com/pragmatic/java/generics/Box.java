@@ -3,7 +3,7 @@ package com.pragmatic.java.generics;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Box <E>{
+public class Box <E extends Boxable>{
 
     List<E> list;
 
@@ -29,5 +29,8 @@ public class Box <E>{
         return "Box{" +
                 "list=" + list +
                 '}';
+    }
+    public double getTotalWeight(){
+        return list.stream().mapToDouble(Boxable::getWeight).sum();
     }
 }

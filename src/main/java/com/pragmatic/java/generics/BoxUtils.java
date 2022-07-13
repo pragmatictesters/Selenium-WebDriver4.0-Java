@@ -4,7 +4,7 @@ import java.util.List;
 
 public class BoxUtils {
 
-    public <T> int getItemCount(Box<T> list){
+    public static <T> int getItemCount(Box<T> list){
         return list.getList().size();
     }
 }

@@ -8,8 +8,7 @@ public class BoxUtilTester {
         fruitBox.addItem(new Fruit("Banana", "South Africa"));
         fruitBox.addItem(new Fruit("Kivi", "New Zealand"));
         
-        BoxUtils utils= new BoxUtils();
-        System.out.println("utils.getItemCount(fruitBox) = " + utils.getItemCount(fruitBox));
+        System.out.println("utils.getItemCount(fruitBox) = " + BoxUtils.getItemCount(fruitBox));
        
     }
 }

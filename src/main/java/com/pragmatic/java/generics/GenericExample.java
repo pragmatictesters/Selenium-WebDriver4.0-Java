@@ -3,16 +3,16 @@ package com.pragmatic.java.generics;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WithoutGenericsExample {
+public class NonGenericExample {
 
     public static void main(String[] args) {
-        List list = new ArrayList();
-        list.add(21); //Type safety is not checked at compile time
-        //list.add("English");
+        List languages = new ArrayList();
+        languages.add(21); //Type safety is not checked at compile time
+        //languages.add("English");
 
         String english = new String("English");
-        list.add(english);
-        printLanguage(list);
+        languages.add(english);
+        printLanguage(languages);
     }
 
     private static void printLanguage(List list) {

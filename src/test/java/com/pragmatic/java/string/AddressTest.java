@@ -38,5 +38,8 @@ public class AddressTest {
 
         System.out.println(address.getAddress());
 
+        Address newAddress = Postmaster.getAddress();
+        System.out.println("\nNew random address : \n" + newAddress.toString());
+
     }
 }

@@ -32,12 +32,13 @@ public class BrowserNavigation {
     @BeforeMethod
     public void beforeMethod() {
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
     }
 
     @AfterMethod
     public void afterMethod() {
         driver.close();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @Test
@@ -55,8 +56,8 @@ public class BrowserNavigation {
         assertThat(driver.getCurrentUrl()).containsIgnoringCase("/web/index.php/dashboard");
 
         driver.findElement(By.id("welcome")).click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Logout")));
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Logout")));
         driver.findElement(By.linkText("Logout")).click();
         assertThat(driver.getCurrentUrl()).containsIgnoringCase("/web/index.php/auth/login");
         driver.navigate().refresh();

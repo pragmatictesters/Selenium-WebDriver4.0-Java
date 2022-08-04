@@ -48,13 +48,13 @@ public class HelloSelenium {
         ///Submit the login form. We have many options
 
         //1. Click the LOGIN button. This time we locate the button with a class name
-        driver.findElement(By.className(".submit-button")).click();
+        driver.findElement(By.className("submit-button")).click();
 
         //2. Press the enter key after typing the password
         //driver.findElement(By.name("password")).sendKeys(password + Keys.ENTER);
 
         //3. Invoke the form submit with any element within the form. We select password
-        driver.findElement(By.name("password")).submit();
+        //driver.findElement(By.name("password")).submit();
 
         //Let's wait for sometime before closing the window
         Thread.sleep(5000);

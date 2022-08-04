@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  * Solution for Day2 question 1
@@ -22,14 +23,17 @@ public class HelloSelenium {
     public static final String BASE_URL = "https://www.saucedemo.com";
 
     public static void main(String[] args) throws InterruptedException {
+
         String username = "standard_user";
         String password = "secret_sauce";
 
         //Setup chrome driver. We use WebDriverManager to set up the driver
-        WebDriverManager.chromedriver().setup();
+//        WebDriverManager.chromedriver().setup();
+        WebDriverManager.firefoxdriver().setup();
 
         //Launch browser. We code for WebDriver interface
-        WebDriver driver = new ChromeDriver();
+//        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new FirefoxDriver();
 
         //Maximize the browser window. Also, you can minimize the window
         driver.manage().window().maximize();
@@ -48,13 +52,13 @@ public class HelloSelenium {
         ///Submit the login form. We have many options
 
         //1. Click the LOGIN button. This time we locate the button with a class name
-        driver.findElement(By.className(".submit-button")).click();
+        driver.findElement(By.className("submit-button")).click();
 
         //2. Press the enter key after typing the password
         //driver.findElement(By.name("password")).sendKeys(password + Keys.ENTER);
 
         //3. Invoke the form submit with any element within the form. We select password
-        driver.findElement(By.name("password")).submit();
+        //driver.findElement(By.name("password")).submit();
 
         //Let's wait for sometime before closing the window
         Thread.sleep(5000);
@@ -62,7 +66,6 @@ public class HelloSelenium {
         //Close the browser
         driver.close();//Close the current window. Quit only if current is the last/only window
         //driver.quit(); //Closes every associated window and quit the driver
-
 
     }
 }

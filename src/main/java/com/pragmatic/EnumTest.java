@@ -4,7 +4,7 @@ public class EnumTest {
 
 
     public static void main(String[] args) {
-        BrowserTypes browserTypes = BrowserTypes.CHROME;
+        BrowserTypes browserTypes = BrowserTypes.OTHER;
 
         switch (browserTypes) {
             case IE -> System.out.println("Internet explorer ");
@@ -15,7 +15,8 @@ public class EnumTest {
             case FIREFOX -> System.out.println("Firefox");
             case CHROME_HEADLESS -> System.out.println("Chrome headless");
             case FIREFOX_HEADLESS -> System.out.println("Firefox headless");
-            default -> throw new IllegalArgumentException("Invalid browser type ");
+            default -> throw new IllegalArgumentException("Invalid browser type %s "
+                    .formatted(browserTypes.browserName));
         }
 
         BrowserTypes[] allSupportedBrowsers = BrowserTypes.values();

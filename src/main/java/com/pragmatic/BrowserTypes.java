@@ -8,7 +8,11 @@ public enum BrowserTypes {
     EDGE ("Microsoft Edge"),
     OPERA("Opera"),
     CHROME_HEADLESS("Chrome headless"),
-    FIREFOX_HEADLESS("Firefox headless");
+    FIREFOX_HEADLESS("Firefox headless"),
+
+    OTHER("Other browser");
+
+
 
     final String browserName;
 

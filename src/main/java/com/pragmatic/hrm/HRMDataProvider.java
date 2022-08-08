@@ -1,4 +1,4 @@
-package com.pragmatic.htm;
+package com.pragmatic.hrm;
 
 import org.testng.annotations.DataProvider;
 

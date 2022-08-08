@@ -1,14 +1,13 @@
-package com.pragmatic.htm.login;
+package com.pragmatic.hrm.tests.login;
 
-import com.pragmatic.htm.BaseTest;
-import com.pragmatic.htm.HRMDataProvider;
-import com.pragmatic.htm.pages.LandingPage;
-import com.pragmatic.htm.pages.LoginPage;
+import com.pragmatic.hrm.BaseTest;
+import com.pragmatic.hrm.BrowserManager;
+import com.pragmatic.hrm.HRMDataProvider;
+import com.pragmatic.hrm.pages.LandingPage;
+import com.pragmatic.hrm.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,20 +16,20 @@ public class LoginTest extends BaseTest {
 
 
     private WebDriver driver;
+    private BrowserManager browserManager;
 
     @BeforeMethod
     public void beforeMethod() {
         System.out.println("I am from before method  inside BASE!");
-        //driver = new ChromeDriver();
-       // driver.get("http://hrm.pragmatictestlabs.com");
+        browserManager = new BrowserManager();
+        driver = browserManager.launchBrowser("chrome");
+        driver.get("http://hrm.pragmatictestlabs.com");
     }
 
 
     @AfterMethod
     public void afterMethod() {
-        if (driver != null) {
-            driver.close();
-        }
+        browserManager.closeBrowserWindows();
     }
 
     @Test
@@ -89,10 +88,10 @@ public class LoginTest extends BaseTest {
     @Test(dataProvider = "loginUserInput", dataProviderClass = HRMDataProvider.class)
     public void testDataDrivenTesting(String userName, String password, String expectedOutcome){
         System.out.println("userName = " + userName + ", password = " + password + ", expectedOutcome = " + expectedOutcome);
-//        LoginPage loginPage = new LoginPage(this.driver);
-//        loginPage.typeUsername(userName).typePassword(password).clickLogin();
-//        String errorMessage = loginPage.getError();
-//        assertThat(errorMessage).isEqualTo(expectedOutcome);
+        LoginPage loginPage = new LoginPage(this.driver);
+        loginPage.typeUsername(userName).typePassword(password).clickLogin();
+        String errorMessage = loginPage.getError();
+        assertThat(errorMessage).isEqualTo(expectedOutcome);
     }
 
 

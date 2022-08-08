@@ -1,23 +1,24 @@
-package com.pragmatic.hrm;
+package com.rootcode.hrm;
 
-import com.pragmatic.hrm.pages.LoginPage;
+import com.rootcode.hrm.pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeSuite;
 
-public class BaseTest {
+public class HRMBaseTest {
 
+
+    private WebDriver driver;
 
     @BeforeSuite
-    public void beforeSuite(){
+    public void beforeSuite() {
+        //TODO: We will introduce a Browser Manager here
         WebDriverManager.chromedriver().setup();
-        BrowserManager browserManager = new BrowserManager();
-        browserManager.setupDriver("chrome");
-
-
+        System.out.println("HRMBaseTest.beforeSuite");
     }
 
     protected void login(WebDriver driver) {
+        this.driver = driver;
         LoginPage loginPage = new LoginPage(driver);
         loginPage.typeUsername("Admin")
                 .typePassword("Ptl@#321")

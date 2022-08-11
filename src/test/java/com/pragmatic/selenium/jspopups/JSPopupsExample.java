@@ -35,7 +35,7 @@ public class JSPopupsExample {
     public void beforeMethod(){
         driver = new ChromeDriver();
         driver.get("http://demosite.pragmatictestlabs.com/");
-        driver.findElement(By.id("btnalert")).click();
+        driver.findElement(By.id("btnJSPopups")).click();
     }
 
     @AfterMethod

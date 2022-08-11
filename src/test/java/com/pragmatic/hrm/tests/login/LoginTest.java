@@ -5,6 +5,7 @@ import com.pragmatic.hrm.BrowserManager;
 import com.pragmatic.hrm.HRMDataProvider;
 import com.pragmatic.hrm.pages.LandingPage;
 import com.pragmatic.hrm.pages.LoginPage;
+import com.pragmatic.util.PropertyManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -22,7 +23,7 @@ public class LoginTest extends BaseTest {
     public void beforeMethod() {
         System.out.println("I am from before method  inside BASE!");
         browserManager = new BrowserManager();
-        driver = browserManager.launchBrowser("chrome");
+        driver = browserManager.launchBrowser(PropertyManager.getProperty("browser.type"));
         driver.get("http://hrm.pragmatictestlabs.com");
     }
 
@@ -93,6 +94,8 @@ public class LoginTest extends BaseTest {
         String errorMessage = loginPage.getError();
         assertThat(errorMessage).isEqualTo(expectedOutcome);
     }
+
+
 
 
 

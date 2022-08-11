@@ -3,10 +3,16 @@ package com.pragmatic.hrm;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BrowserManager {
 
@@ -34,10 +40,28 @@ public class BrowserManager {
 
         switch (browser.toLowerCase()) {
             case "chrome" -> {
-                webDriver = new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+                //Removing the Infobar
+                options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
+
+                //Disabling save password popup window
+                Map<String, Object> prefs = new HashMap<>();
+                prefs.put("credentials_enable_service", false);
+                prefs.put("profile.password_manager_enabled", false);
+                options.setExperimentalOption("prefs", prefs);
+                options.addArguments("--disable-save-password");
+                webDriver = new ChromeDriver(options);
+            }case "chrome-headless" -> {
+                ChromeOptions options = new ChromeOptions();
+                options.setHeadless(true);
+                webDriver = new ChromeDriver(options);
             }
             case "firefox" -> {
                 webDriver = new FirefoxDriver();
+            } case "firefox-headless" -> {
+                FirefoxOptions options = new FirefoxOptions();
+                options.setHeadless(true);
+                webDriver = new FirefoxDriver(options);
             }
             case "safari" -> {
                 webDriver = new SafariDriver();
@@ -50,6 +74,7 @@ public class BrowserManager {
             }
 
         }
+        webDriver.manage().window().maximize();
         return webDriver;
     }
 

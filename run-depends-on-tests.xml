@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="suite-packages" preserve-order="false">
+
+    <test name="test1" preserve-order="false">
+        <classes>
+            <class name="com.pragmatic.testng.group2.TestNGExample6"/>
+        </classes>
+    </test>
+
+
+    <test name="test2" preserve-order="false">
+        <classes>
+            <class name="com.pragmatic.testng.group2.TestNGExample10"/>
+        </classes>
+    </test>
+
+
+</suite>

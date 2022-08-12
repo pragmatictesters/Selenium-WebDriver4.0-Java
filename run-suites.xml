@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="suite-packages" preserve-order="false">
+
+    <suite-files>
+        <suite-file path="run-depends-on-tests.xml"></suite-file>
+        <suite-file path="run-packages.xml"></suite-file>
+        <suite-file path="run-groups.xml"></suite-file>
+    </suite-files>
+</suite>

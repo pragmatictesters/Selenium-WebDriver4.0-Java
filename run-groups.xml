@@ -1,0 +1,44 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="suite-packages" preserve-order="false">
+
+    <test name="include-groups" preserve-order="false">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="com.pragmatic.testng.group2"/>
+        </packages>
+    </test>
+
+    <test name="exclude-groups">
+        <groups>
+            <run>
+                <exclude name="smoke"/>
+            </run>
+        </groups>
+
+        <packages>
+            <package name="com.pragmatic.testng.group2"/>
+        </packages>
+    </test>
+
+
+    <test name="smoke-first" preserve-order="false">
+        <groups>
+            <dependencies>
+                <group name="regression" depends-on="smoke"></group>
+            </dependencies>
+        </groups>
+
+        <classes>
+            <class name="com.pragmatic.testng.group2.TestNGExample10"></class>
+        </classes>
+
+    </test>
+
+
+
+</suite>

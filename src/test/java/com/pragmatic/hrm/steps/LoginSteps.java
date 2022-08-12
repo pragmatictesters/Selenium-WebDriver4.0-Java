@@ -59,4 +59,9 @@ public class LoginSteps {
     public void useShouldGetAnErrorMessage(String expectedError) {
         assertThat(loginPage.getError()).isEqualTo(expectedError);
     }
+
+    @Then("Use should see welcome message {string}")
+    public void useShouldSeeWelcomeMessage(String welcomeMessage) {
+
+    }
 }

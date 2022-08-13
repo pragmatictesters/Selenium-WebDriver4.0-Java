@@ -1,8 +1,9 @@
 package com.pragmatic.testng.group2;
 
+import com.pragmatic.testng.group4.TestNGTestBase;
 import org.testng.annotations.Test;
 
-public class TestNGExample10 {
+public class TestNGExample10  extends TestNGTestBase {
 
 
     @Test(groups = {"smoke"})

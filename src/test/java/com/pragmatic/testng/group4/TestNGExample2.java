@@ -5,9 +5,11 @@ import org.testng.annotations.Test;
 public class TestNGExample2 {
 
 
-    @Test
+    @Test(expectedExceptions = {IllegalArgumentException.class, ArrayIndexOutOfBoundsException.class})
     public void testMethod1() {
+        String[] names = new String[3];
         System.out.println("TestNGExample2.testMethod1");
+        System.out.println(names[3]);
     }
      @Test
     public void testMethod2() {

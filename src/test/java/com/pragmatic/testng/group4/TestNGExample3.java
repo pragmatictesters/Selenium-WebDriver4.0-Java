@@ -2,10 +2,10 @@ package com.pragmatic.testng.group4;
 
 import org.testng.annotations.Test;
 
-public class TestNGExample3 {
+public class TestNGExample3  extends TestNGTestBase{
 
 
-    @Test
+    @Test (invocationCount = 3)
     public void testMethod1() {
         System.out.println("TestNGExample3.testMethod1");
     }

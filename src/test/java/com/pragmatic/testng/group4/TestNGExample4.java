@@ -1,15 +1,17 @@
 package com.pragmatic.testng.group4;
 
 import org.testng.annotations.Ignore;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-@Ignore
-public class TestNGExample4 {
+public class TestNGExample4 extends TestNGTestBase {
 
 
+    @Parameters("browser")
     @Test
-    public void testMethod1() {
+    public void testMethod1(String browserName) {
         System.out.println("TestNGExample4.testMethod1");
+        System.out.println("browserName = " + browserName);
     }
      @Test
     public void testMethod2() {

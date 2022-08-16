@@ -18,13 +18,13 @@
         </classes>
     </test>
 
- <test name="test3">
+    <test name="test3">
         <classes>
             <class name="com.pragmatic.testng.group4.TestNGExample3"/>
             <class name="com.pragmatic.testng.group4.TestNGExample4"/>
         </classes>
     </test>
-    
+
     <listeners>
         <listener class-name="com.pragmatic.testng.PTLTestSuiteListener"></listener>
     </listeners>

@@ -19,7 +19,7 @@ public class TestNGExample9 {
     public void testMethod3() {
         System.out.println("TestNGExample8.testMethod3");
     }
-    @Test(groups = {"init"})
+    @Test(groups = {"init"}, testName = "testMethod4")
     public void testMethod4() {
         System.out.println("TestNGExample8.testMethod4");
         Assert.fail("Forceful failure");

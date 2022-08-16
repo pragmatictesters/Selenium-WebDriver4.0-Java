@@ -1,5 +1,6 @@
 package com.pragmatic.testng.group4;
 
+import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -23,10 +24,12 @@ public class TestNGExample5 {
 
     public void testMethod3() {
         System.out.println("TestNGExample5.testMethod3");
+        Assert.fail("Forceful failure");
     }
 
     public void testMethod4() {
         System.out.println("TestNGExample5.testMethod4");
+        Assert.fail("Forceful failure");
     }
 
 

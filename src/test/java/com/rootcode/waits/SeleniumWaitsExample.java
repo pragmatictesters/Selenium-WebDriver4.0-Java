@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -16,6 +17,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.function.Function;
 
 public class SeleniumWaitsExample {
 
@@ -82,7 +84,7 @@ public class SeleniumWaitsExample {
 
 
     @Test
-    public void testLogoutWithExplicitWait()  {
+    public void testLogoutWithExplicitWait() {
         driver.findElement(By.id("welcome")).click();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -95,18 +97,23 @@ public class SeleniumWaitsExample {
     }
 
 
-     @Test
+    @Test
     public void testLogoutWithFluentWait() {
         driver.findElement(By.id("welcome")).click();
 
-         Wait<WebDriver> wait = new FluentWait<>(driver)
-                 .withTimeout(Duration.ofSeconds(10))
-                 .withMessage("Logout element is not found")
-                 .pollingEvery(Duration.ofMillis(200))
-                 .ignoring(NoSuchElementException.class);
+        Wait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(10))
+                .withMessage("Logout element is not found")
+                .pollingEvery(Duration.ofMillis(200))
+                .ignoring(NoSuchElementException.class);
 
         wait.until(
-                ExpectedConditions.elementToBeClickable(By.linkText("Logout"))
+                new Function<WebDriver, WebElement>() {
+                    public WebElement apply(WebDriver driver) {
+                        driver.findElement(By.linkText("Logout")).isDisplayed();
+                        return driver.findElement(By.linkText("Logout"));
+                    }
+                }
         ).click();
 
         //driver.findElement(By.linkText("Logout")).click();
@@ -114,7 +121,30 @@ public class SeleniumWaitsExample {
     }
 
 
+    @Test
+    public void testLogoutWithFluentWaitCustomClass() {
+        driver.findElement(By.id("welcome")).click();
+
+        FluentWait<WebDriver> wait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(10))
+                .withMessage("Logout element is not found")
+                .pollingEvery(Duration.ofMillis(200))
+                .ignoring(NoSuchElementException.class);
+
+        wait.until(
+                new ISElementClickable()
+        ).click();
+
+        //driver.findElement(By.linkText("Logout")).click();
+        Assert.assertTrue(driver.findElement(By.id("txtUsername")).isDisplayed());
+    }
 
 
-
+    private class ISElementClickable implements Function<WebDriver, WebElement> {
+        @Override
+        public WebElement apply(WebDriver webDriver){
+            if (!driver.findElement(By.linkText("Logout")).isEnabled()) return null;
+            return driver.findElement(By.linkText("Logout"));
+        }
+    }
 }

@@ -75,7 +75,36 @@ Locating web element
 11. YOU CAN CREATE YOUR OWN (CUSTOM) LOCATORS
 
 
-# Mastering CSS
+A = B
+B = C
+A = C 
+
+XPath is for locating elements in XML 
+XML and HTML have similar syntax (HTML is a subset of XML)
+
+XPath can be used for locating elements in HTML (web pages)
+
+Absolute path
+/html/body/div[1]/div[3]/div/div[2]/form/fieldset/ol/li[4]/input  NEVER USE. THIS WILL BE LONGER, NOT READABLE AND BRITTLE 
+
+
+Relative Path
+//*[@id="chkLogin"]
+
+
+
+Exact Path 
+//input[@id='txtUsername'']
+//input[@name='txtUsername'']
+//input[@type='text'']
+
+//*[@id='txtUsername'']
+//*[@name='txtUsername'']
+//*[@type='text'']
+
+
+
+# Mastering CSS and XPath 
 
 <input class="input_error form_input" 
 placeholder="Username" type="text" data-test="username" id="user-name" name="user-name" 
@@ -113,9 +142,14 @@ autocorrect="off" autocapitalize="none" value="">
    [<attributeName>='<attributeValue>']
    [placeholder='Username']
 
+    //*[@<attributeName>='<attributeVale>'']
+
 9. Locating element with a tag name , attribute and it's value
    <tagName>[<attributeName>='<attributeValue>']
    input[placeholder='Username']
+
+   //<tagName>[@<attributeName>='<attributeVale>'']
+
 
 10. Absolute path [NEVER USE THIS. THIS IS BRITTLE AND LONGER]
     html > body>div>div>div:nth-child(2)>div>div>div>form>div>input
@@ -163,8 +197,24 @@ Locate the elements with dynamic attribute values
 
 
 
+XPATH ADVANTAGES
+<div id="logInPanelHeading">LOGIN Panel</div>
+
+1. It can be used for locating elements with their inner text
+   //div[text()='LOGIN Panel']
+
+2. Locating elements with partial inner text 
+
+//<tagName>[contains(text(),'Partial Text')]
 
 
+
+
+contains()
+starts-with()
+ends-with() //NOT WORKING WITH BROWSERS 
+text()
+last()
 
 
 

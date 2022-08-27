@@ -11,8 +11,11 @@ The stream API can be used withing Selenium frameworks for
 6. Getting distinct elements 
 7. And more 
 
-## Sample 
+Mastering the Java Steam API will help you to take your test automation framework to the next level.
+
+## Sample code 
 Sample code is availed @ com.rootcode.sauce.tests.InventoryTest.java 
+
 
 ## References 
 [Java Steams : Java Doc](https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html)

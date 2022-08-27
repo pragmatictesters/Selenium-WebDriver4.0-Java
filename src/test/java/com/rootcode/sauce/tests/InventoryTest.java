@@ -90,8 +90,8 @@ public class InventoryTest extends TestBase {
         InventoryPage inventoryPage = new InventoryPage(getDriver());
         inventoryPage.sortPriceLowToHigh();
         List<Item> itemList = inventoryPage.getItemList();
-        double[] original = itemList.stream().mapToDouble(Item::price).toArray();
-        double[] sorted = itemList.stream().mapToDouble(Item::price).sorted().toArray();
+        List<Double> original = itemList.stream().map(Item::price).collect(Collectors.toList());
+        List<Double> sorted = itemList.stream().map(Item::price).sorted().collect(Collectors.toList());
         Assert.assertEquals(original, sorted);
     }
 

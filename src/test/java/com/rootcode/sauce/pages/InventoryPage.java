@@ -42,6 +42,7 @@ public class InventoryPage {
         List<Item> itemList = getItemList();
         return itemList.stream().anyMatch(item -> item.itemName().equals(productName));
 
+        //USE JAVA STREAMS TO SIMPLIFY THE PROCESS
 //        for (WebElement eleItem : eleItems
 //        ) {
 //            String itemName = eleItem.findElement(By.cssSelector(".inventory_item_name")).getText().strip();
@@ -56,13 +57,15 @@ public class InventoryPage {
         List<Item> itemList = new ArrayList<>();
 
         eleItems.stream().forEach(eleItem -> {
-            String itemName = eleItem.findElement(By.className("inventory_item_name")).getText().strip();
-            String itemDescription = eleItem.findElement(By.className("inventory_item_desc")).getText().strip();
-            double itemPrice = Double.parseDouble(eleItem.findElement(By.className("inventory_item_price")).getText().replace("$", "").strip());
-            Item item = new Item(itemName, itemDescription, itemPrice);
-            itemList.add(item);
+                    String itemName = eleItem.findElement(By.className("inventory_item_name")).getText().strip();
+                    String itemDescription = eleItem.findElement(By.className("inventory_item_desc")).getText().strip();
+                    double itemPrice = Double.parseDouble(eleItem.findElement(By.className("inventory_item_price")).getText().replace("$", "").strip());
+                    Item item = new Item(itemName, itemDescription, itemPrice);
+                    itemList.add(item);
                 }
         );
+
+        //USE JAVA STREAMS TO SIMPLIFY THE PROCESS
 //
 //        for (WebElement eleItem : eleItems
 //        ) {

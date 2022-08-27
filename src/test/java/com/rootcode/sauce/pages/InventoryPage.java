@@ -39,27 +39,39 @@ public class InventoryPage {
     }
 
     public boolean searchProduct(String productName) {
-        for (WebElement eleItem : eleItems
-        ) {
-            String itemName = eleItem.findElement(By.cssSelector(".inventory_item_name")).getText().strip();
-            if (itemName.equals(productName)) {
-                return true;
-            }
-        }
-        return false;
+        List<Item> itemList = getItemList();
+        return itemList.stream().anyMatch(item -> item.itemName().equals(productName));
+
+//        for (WebElement eleItem : eleItems
+//        ) {
+//            String itemName = eleItem.findElement(By.cssSelector(".inventory_item_name")).getText().strip();
+//            if (itemName.equals(productName)) {
+//                return true;
+//            }
+//        }
+//        return false;
     }
 
     public List<Item> getItemList() {
         List<Item> itemList = new ArrayList<>();
 
-        for (WebElement eleItem : eleItems
-        ) {
+        eleItems.stream().forEach(eleItem -> {
             String itemName = eleItem.findElement(By.className("inventory_item_name")).getText().strip();
             String itemDescription = eleItem.findElement(By.className("inventory_item_desc")).getText().strip();
             double itemPrice = Double.parseDouble(eleItem.findElement(By.className("inventory_item_price")).getText().replace("$", "").strip());
             Item item = new Item(itemName, itemDescription, itemPrice);
             itemList.add(item);
-        }
+                }
+        );
+//
+//        for (WebElement eleItem : eleItems
+//        ) {
+//            String itemName = eleItem.findElement(By.className("inventory_item_name")).getText().strip();
+//            String itemDescription = eleItem.findElement(By.className("inventory_item_desc")).getText().strip();
+//            double itemPrice = Double.parseDouble(eleItem.findElement(By.className("inventory_item_price")).getText().replace("$", "").strip());
+//            Item item = new Item(itemName, itemDescription, itemPrice);
+//            itemList.add(item);
+//        }
 
         return itemList;
     }

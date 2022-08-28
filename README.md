@@ -1,6 +1,6 @@
-# Use of Java Streams API in Selenium Framework
+# Use of Java Streams API in a Selenium Framework
 
-## Introduction 
+## Introduction
 Java streams package consists of classes, interfaces and enum to allows functional-style operations on the elements.
 The stream API can be used withing Selenium frameworks for 
 1. Iterating over list of elements 

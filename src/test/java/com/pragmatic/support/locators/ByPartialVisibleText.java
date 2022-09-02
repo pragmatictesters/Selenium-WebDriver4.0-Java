@@ -1,4 +1,4 @@
-package com.pragmatic.support;
+package com.pragmatic.support.locators;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;

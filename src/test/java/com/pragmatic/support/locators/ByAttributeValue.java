@@ -1,4 +1,4 @@
-package com.pragmatic.locators;
+package com.pragmatic.support.locators;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
@@ -6,11 +6,11 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class LocateByAttribute extends By {
+public class ByAttributeValue extends By {
     private final String name;
     private final String value;
 
-    public LocateByAttribute(String attributeName, String attributeValue) {
+    public ByAttributeValue(String attributeName, String attributeValue) {
         this.name= attributeName;
         this.value= attributeValue;
     }

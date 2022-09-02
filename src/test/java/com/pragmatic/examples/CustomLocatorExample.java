@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CustonLocatorExample {
+public class CustomLocatorExample {
 
 
     private WebDriver driver;
@@ -28,8 +28,6 @@ public class CustonLocatorExample {
         driver = new ChromeDriver();
         driver.get("http://demosite.pragmatictestlabs.com/");
         driver.manage().window().maximize();
-
-
     }
 
     @AfterMethod

@@ -1,4 +1,4 @@
-package com.pragmatic.support;
+package com.pragmatic.support.ui;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WrapsElement;

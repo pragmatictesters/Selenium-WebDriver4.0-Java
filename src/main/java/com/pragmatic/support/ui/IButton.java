@@ -1,4 +1,4 @@
-package com.pragmatic.support;
+package com.pragmatic.support.ui;
 
 public interface IButton {
 

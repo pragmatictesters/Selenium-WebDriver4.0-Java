@@ -16,7 +16,6 @@ import org.testng.annotations.Test;
 
 public class ElementsAbstractionExample {
 
-
     private WebDriver driver;
 
     @BeforeClass
@@ -55,14 +54,10 @@ public class ElementsAbstractionExample {
         Assert.assertEquals(btnSubmit.getText(), "Submit");
     }
 
-
-
     @Test
     public void testCheckbox (){
         WebElement eleSeleniumCheck = driver.findElement(By.id("selenium"));
-        WebElement eleSQTPCheck = driver.findElement(By.id("qtp"));
         Checkbox chkSelenium = new Checkbox(eleSeleniumCheck);
-        Checkbox chkQTP = new Checkbox(eleSQTPCheck);
         chkSelenium.check();
         Assert.assertEquals(chkSelenium.isChecked(), true);
         chkSelenium.uncheck();
@@ -76,8 +71,5 @@ public class ElementsAbstractionExample {
         chkSelenium.uncheck();
         Assert.assertEquals(chkSelenium.isChecked(), false);
     }
-
-
-
 
 }

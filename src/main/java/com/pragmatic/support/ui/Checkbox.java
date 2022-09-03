@@ -10,7 +10,6 @@ public class Checkbox implements ICheckbox, WrapsElement {
         this.element = element;
     }
 
-
     @Override
     public WebElement getWrappedElement() {
         return element;

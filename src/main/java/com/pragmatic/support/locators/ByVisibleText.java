@@ -15,6 +15,8 @@ public class ByVisibleText extends By {
 
     @Override
     public List<WebElement> findElements(SearchContext context) {
-        return context.findElements(By.xpath(String.format("//*[text()='%s']", exactText)));
+        return context
+                .findElements(
+                        By.xpath(String.format("//*[text()='%s']", exactText)));
     }
 }

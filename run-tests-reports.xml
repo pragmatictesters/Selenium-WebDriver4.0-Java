@@ -12,13 +12,13 @@
     </test>
 
 
-    <test name="test2">
+    <test name="test2" enabled="true">
         <classes>
             <class name="com.pragmatic.testng.group4.TestNGExample4"/>
         </classes>
     </test>
 
-    <test name="test3">
+    <test name="test3" enabled="false">
         <classes>
             <class name="com.pragmatic.testng.group4.TestNGExample3"/>
             <class name="com.pragmatic.testng.group4.TestNGExample4"/>
